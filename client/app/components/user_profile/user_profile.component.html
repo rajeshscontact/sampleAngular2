@@ -1,0 +1,60 @@
+<div id="container" layout="column" layout-fill>
+	<toolbar-component (menuClick)="start.toggle()"></toolbar-component>
+	<section layout="row" flex>
+		<md-sidenav-layout class="left-navigation">
+			<md-sidenav class="sidebarTypeHome" #start mode="side" opened="true">
+				<sidenav-component></sidenav-component>
+			</md-sidenav>
+			<section>
+				<div layout="row" layout-wrap class="userProfileSection">
+					<div class="userProfileContent" flex>
+						<h2>User Profile</h2>
+						<form>
+							<md-input placeholder="Company (disabled)" disabled value="Cedrus">
+							</md-input>
+							<div layout="row" layout-wrap class="userProfileSection nameSection">
+								<div class="userProfileNameSection">
+									<md-input  #firstname required type="firstname" name="firstname" placeholder="First Name"
+									[(ngModel)]="user.firstname"></md-input>
+								</div>
+								<div class="userProfileNameSection">
+									<md-input placeholder="Last Name" #lastname required type="lastname"
+									name="lastname" placeholder="Last Name" [(ngModel)]="user.lastname"></md-input>
+								</div>
+							</div>
+							<div layout="row" layout-wrap>
+								<div class="userProfileAddressSection">
+									<md-input placeholder="Address Line1" #addressLine1 type="addressLine1" name="addressLine1" [(ngModel)]="user.addressLine1" style="width: 100%"></md-input>
+								</div>
+								<div class="userProfileAddressSection">
+									<md-input placeholder="Address Line2" #addressLine2 type="addressLine2" name="addressLine2" [(ngModel)]="user.addressLine2" style="width: 100%"></md-input>
+								</div>
+							</div>
+							<div layout="row" layout-wrap class="userProfileSection citySection">
+								<div class="userProfileCityZipStateSection">
+									<md-input placeholder="City" #addressCity type="addressLine1" name="addressCity" [(ngModel)]="user.addressCity"></md-input>
+								</div>
+								<div class="userProfileCityZipStateSection">
+									<md-input placeholder="State" #addressState type="addressState" name="addressState" [(ngModel)]="user.addressState"></md-input>
+								</div>
+								<div class="userProfileCityZipStateSection">
+									<md-input #postalCode maxLength="5"
+									placeholder="Postal Code"
+									#addressZip type="addressZip" name="addressZip" [(ngModel)]="user.addressZip">
+									<md-hint class="userProfileZipHint" align="end">{{addressZip.characterCount}} / 5</md-hint>
+									</md-input>
+								</div>
+							</div>
+						</form>
+						<div flex class="userProfileSaveButton">
+							<button md-button>Save</button>
+						</div>
+					</div>
+					<div flex class="userProfileColTwo">
+					</div>
+				</div>
+			</section>
+		</md-sidenav-layout>
+	</section>
+	<footer-component></footer-component>
+</div>

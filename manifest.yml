@@ -1,0 +1,4 @@
+---
+applications:
+- name: soju-angular2
+  memory: 256M
